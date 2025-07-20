@@ -18,7 +18,7 @@ services:
       - DEBUG=${DEBUG:-0}
     volumes:
       # Persists the state of LocalStack services between runs.
-      - "/home/arjun-prasad/ARJUN/Work/Projects/DRON/data/localstack:/var/lib/localstack"
+      - "/yourpath:/var/lib/localstack"
       # Mounts the Docker socket to allow LocalStack to spin up other containers (e.g., for RDS).
       - "/var/run/docker.sock:/var/run/docker.sock"
       # Mounts an initialization script to auto-create AWS resources on startup.
