@@ -1,0 +1,26 @@
+
+# requirements.txt
+#
+# These packages will be installed using pip.
+# Complex geospatial libraries (osmnx, geopandas) and PyTorch
+# are handled separately by Conda in the setup script for better stability.
+
+# Optimization
+ortools
+
+# ML & Data Handling
+scikit-learn
+pandas
+numpy
+networkx
+geopy
+
+# Web App & Visualization
+streamlit
+folium
+
+# Development & Utilities
+jupyterlab
+boto3
+requests
+python-dotenv

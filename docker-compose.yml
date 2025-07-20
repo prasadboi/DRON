@@ -1,0 +1,25 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  localstack:
+    container_name: "localstack-main"
+    image: localstack/localstack:latest
+    ports:
+      # LocalStack Gateway to interact with AWS services
+      - "127.0.0.1:4566:4566"
+      # Port range for external services (e.g., RDS)
+      - "127.0.0.1:4510-4559:4510-4559"
+    environment:
+      # Specifies which services to start.
+      # For your project, you'll need S3 for storage and RDS for metadata.
+      - SERVICES=s3,rds
+      # Enables debug logs for troubleshooting. Set to 0 to disable.
+      - DEBUG=${DEBUG:-0}
+    volumes:
+      # Persists the state of LocalStack services between runs.
+      - "/home/arjun-prasad/ARJUN/Work/Projects/DRON/data/localstack:/var/lib/localstack"
+      # Mounts the Docker socket to allow LocalStack to spin up other containers (e.g., for RDS).
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      # Mounts an initialization script to auto-create AWS resources on startup.
+      - "./localstack-init:/etc/localstack/init/ready.d"

@@ -1,0 +1,6 @@
+{
+  "s3_bucket": "delivery-optimization-data",
+  "location": "New York City, New York",
+  "network_type": "drive",
+  "cache_dir": "cache/map"
+}
